@@ -1,0 +1,36 @@
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+
+    table {
+        width: 80%;
+        margin: 40px auto;
+        border-collapse: collapse;
+        background: #fff;
+    }
+
+    th, td {
+        border: 1px solid #d43636;
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #e6e6e6;
+        font-weight: bold;
+    }
+
+    img {
+        width: 50px;
+    }
+
+    .total-row {
+        font-weight: bold;
+        background-color: #f9f9f9;
+    }
+
+    .total-price {
+        font-weight: bold;
+        color: #d60000;
+    }

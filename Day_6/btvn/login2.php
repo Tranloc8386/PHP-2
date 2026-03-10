@@ -6,10 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["username"]);
     $password = $_POST["password"];
 
+
     if (isset($_COOKIE["user"])) {
 
         $savedUser = json_decode($_COOKIE['user'], true);
-        if ($name === $savedUser["username"] && password_verify($password, $savedUser["password"])) {
+        if ($name === $savedUser["name"] && password_verify($password, $savedUser["password"])) {
 
             $_SESSION['user'] = [
                 'name' => $savedUser['name'],
@@ -18,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             ];
             echo $loginMessage = "<p>Chao mung</p>" . htmlspecialchars($name);
+            echo "<a href='product.php'>Vao trang san pham</a>";
         } else {
             echo $loginMessage = "<p>Sai ten hoac mat khau!</p>";
         }
@@ -35,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" name="password" required>
     <br>
     <button type="submit">Dang nhap</button>
-    <p>click here to <button>Register</button></p>
+    <p>click here to <a href="register2.php">Register</a></p>
 
 
 </form>

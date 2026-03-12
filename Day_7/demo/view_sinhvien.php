@@ -3,11 +3,11 @@
 require_once "sinhvien.php";
 //tao mang object sinh vien mau 
 $dssinhvien = [
-    new Sinhvien("SV001", "Nguyễn Văn An", 20, "an.nguyen@example.com", "CNTT K65", 8.5, "Đang học"),
-    new Sinhvien("SV002", "Trần Thị Bình", 19, "binh.tran@example.com", "Kinh tế K66", 7.2, "Đang học"),
-    new Sinhvien("SV003", "Lê Văn Cường", 21, "cuong.le@example.com", "Cơ khí K64", 9.1, "Tốt nghiệp"),
-    new Sinhvien("SV004", "Phạm Thị Dung", 20, "dung.pham@example.com", "CNTT K65", 6.8, "Đang học"),
-    new Sinhvien("SV005", "Đoàn Văn Em", 22, "em.doan@example.com", "Xây dựng K63", 6.6, "Bảo lưu"),
+    new Sinhvien(name: "SV001", age: "Nguyễn Văn An", email: 20, maSV: "an.nguyen@example.com", lop: "CNTT K65", diemTB: 8.5, trangThai: "Đang học"),
+    new Sinhvien(name: "SV002", age: "Trần Thị Bình", email: 19, maSV: "binh.tran@example.com", lop: "Kinh tế K66", diemTB: 7.2, trangThai: "Đang học"),
+    new Sinhvien(name: "SV003", age: "Lê Văn Cường", email: 21, maSV: "cuong.le@example.com", lop: "Cơ khí K64", diemTB: 9.1, trangThai: "Tốt nghiệp"),
+    new Sinhvien(name: "SV004", age: "Phạm Thị Dung", email: 20, maSV: "dung.pham@example.com", lop: "CNTT K65", diemTB: 6.8, trangThai: "Đang học"),
+    new Sinhvien(name: "SV005", age: "Đoàn Văn Em", email: 22, maSV: "em.doan@example.com", lop: "Xây dựng K63", diemTB: 6.6, trangThai: "Bảo lưu"),
 ];
 ?>
 <!DOCTYPE html>

@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </form>
 
     <hr>
-    <p style="color: <?php echo strpos($message, 'loi') !== false ? "red" : 'green'; ?>;">
+    <p style="color: <?php echo strpos($message, 'Loi') !== false ? "red" : 'green'; ?>;">
         <?php echo htmlspecialchars($message) ?>
     </p>
 

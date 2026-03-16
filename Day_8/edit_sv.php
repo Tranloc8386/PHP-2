@@ -1,9 +1,9 @@
 <?php
 require_once 'connectDB.php';
-
 $id = $_GET['id'];
-
+//lay thong tin sinh vien tu DB
 $result = mysqli_query($conn, "SELECT * FROM sinh_vien WHERE id=$id");
+//chuyen su lieuj SQL thanh mang
 $student = mysqli_fetch_assoc($result);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -13,15 +13,17 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $lop_hoc_id = $_POST['lop_hoc_id'];
 
+//update du lieu trong DB
 mysqli_query($conn,
 "UPDATE sinh_vien
 SET name='$name', email='$email', phone='$phone', lop_hoc_id='$lop_hoc_id'
 WHERE id=$id"
 );
-
+//quay lai trang danh sach sinh vien
 header("Location: sinh_vien.php");
 }
 
+//lay danh sach lop hocj
 $result = mysqli_query($conn, "SELECT * FROM lop_hoc");
 ?>
 

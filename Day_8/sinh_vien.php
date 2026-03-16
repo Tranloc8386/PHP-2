@@ -1,9 +1,7 @@
 <?php
 require 'connectDB.php';
 
-$query = "SELECT sinh_vien.*, lop_hoc.name AS ten_lop
-          FROM sinh_vien
-          JOIN lop_hoc ON sinh_vien.lop_hoc_id = lop_hoc.id";
+$query = "SELECT *from sinh_vien";
 
 $result = mysqli_query($conn, $query);
 ?>

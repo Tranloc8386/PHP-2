@@ -1,7 +1,5 @@
 <?php
 
-use Dom\Mysql;
-
 session_start();
 require "connectDB.php";
 
@@ -46,8 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['book_id'])) {
         <th>AUTHOR</th>
         <th>PRICE</th>
         <th>STOCK</th>
+
         <th>DESCRIPTION</th>
+
         <th>THEM VAO GIO</th>
+        <th>IMAGE</th>
     </tr>
     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
         <tr>
@@ -65,10 +66,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['book_id'])) {
                         <button type="submit" style="color: chartreuse;">Them vao gio hang</button>
                     </div>
                 </form>
+                <a href="update_book.php?id=<?php echo $row['id'] ?>">Update</a>
+                <a href="delete_books.php?id=<?php echo $row['id'] ?>"
+                    onclick="return confirm('Bạn có chắc muốn xoá không?')"
+                    style="color:red;">
+                    Delete
+                </a>
+
+            </td>
+            <td>
+                <img src="<?php echo $row['image']; ?>" width="80">
             </td>
 
         </tr>
 
+
     <?php } ?>
 </table>
 <div><a href="cart.php">Xem gio hang</a></div>
+<a href="add_books.php">Them sach</a>

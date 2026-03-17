@@ -1,17 +1,6 @@
 <?php
-require "connectDB.php";
-
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $title = $_POST['title'];
-    $author = $_POST['author'];
-    $price = $_POST['price'];
-    $stock = $_POST['stock'];
-    $description = $_POST['description'];
-    $imagePath = "";
 
-    /// upload anh len///
-
-    
     if (!isset($_FILES['book_image']) || $_FILES['book_image']['error'] != 0) {
         die("Chưa upload file hoặc file lỗi");
     }
@@ -50,46 +39,30 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
 
         if (move_uploaded_file($_FILES['book_image']['tmp_name'], $targetFilePath)) {
-            $imagePath = $targetFilePath;
-            echo " file " . htmlspecialchars($fileName) . " da duoc upload thanh cong <br>";
+            echo " file " . htmlspecialchars($fileName) ." da duoc upload thanh cong <br>";
             echo "Duong dan file: <a href ='$targetFilePath' target='_blank'>jjjj$targetFilePath</a><br>";
             echo "<img src='$targetFilePath' width='300' height ='400'>";
         } else {
             echo "Upload thất bại";
         }
     }
-
-    $stmt = $conn->prepare("INSERT INTO books (title,author,price,stock,description, image)
-    values (?, ?, ?,? , ?,?)");
-    $stmt->bind_param('ssdiss', $title, $author, $price, $stock, $description, $imagePath);
-
-    if ($stmt->execute()) {
-        echo "<p>Thêm sách thành công</p>";
-    } else {
-        echo "<p>Lỗi: " . $stmt->error . "</p>";
-    }
-
-    $stmt->close();
 }
-
-
 ?>
-<h3>Them sach moi </h3>
-<form method="post" enctype="multipart/form-data">
-    <label>Title: </label>
-    <input type="text" name="title" required><br><br>
+<!DOCTYPE html>
+<html lang="en">
 
-    <input type="text" name="author"><br><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload anh bia sach</title>
+</head>
 
-    <input type="number" name="price"><br><br>
-
-    <input type="number" name="stock"><br><br>
-
-    <input type="text" name="description"><br><br>
-
+<body>
     <h2><strong>Upload anh bia sach</strong></h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="book_image" required>
+        <input type="submit" name="submit" value="upload">
+    </form>
+</body>
 
-    <input type="file" name="book_image" required>
-
-    <button type="submit">Thêm sách</button>
-</form>
+</html>

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     /// upload anh len///
 
-    
+
     if (!isset($_FILES['book_image']) || $_FILES['book_image']['error'] != 0) {
         die("Chưa upload file hoặc file lỗi");
     }
@@ -51,8 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (move_uploaded_file($_FILES['book_image']['tmp_name'], $targetFilePath)) {
             $imagePath = $targetFilePath;
+            
             echo " file " . htmlspecialchars($fileName) . " da duoc upload thanh cong <br>";
-            echo "Duong dan file: <a href ='$targetFilePath' target='_blank'>jjjj$targetFilePath</a><br>";
+            echo "Duong dan file: <a href ='$targetFilePath' target='_blank'>$targetFilePath</a><br>";
             echo "<img src='$targetFilePath' width='300' height ='400'>";
         } else {
             echo "Upload thất bại";
@@ -78,14 +79,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <form method="post" enctype="multipart/form-data">
     <label>Title: </label>
     <input type="text" name="title" required><br><br>
+    <label>Author: </label>
 
     <input type="text" name="author"><br><br>
+    <label>Price: </label>
 
     <input type="number" name="price"><br><br>
+    <label>Stock: </label>
 
     <input type="number" name="stock"><br><br>
+    <label>Description: </label>
 
     <input type="text" name="description"><br><br>
+
 
     <h2><strong>Upload anh bia sach</strong></h2>
 
